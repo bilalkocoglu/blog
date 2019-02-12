@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Create Post - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h1>Form</h1>
+                    {{ form|crispy }}     <!-- '.as_p' formdaki tum alanlari p etiketi ile kaplar -->
+                    <input type="submit" value="Olustur">
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+body{
+    background-color: silver !important;
+}
+
+.detail-cols{
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 2px;
+}

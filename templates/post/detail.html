@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    {{ post.title }} Detail - {{ block.super }}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="row" style="border: 1px solid blue; background-color: white; border-radius: 5px; padding: 10px; margin:5px;">
+        <div class="col-3 detail-cols">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" class="card-img img-fluid img-thumbnail">
+            {% endif %}
+        </div>
+        <div class="col-5 detail-cols">
+            <p>{{ post.id }} - <strong>{{ post.title }}</strong></p>
+            <p style="font-size: small; padding: 5px;">{{ post.content|linebreaks }}</p>
+            <p style="font-size: xx-small; font-style: italic">{{ post.publishing_date }}</p>
+        </div>
+        <div class="col-2">
+            {% if request.user.is_authenticated %}
+                <a class="btn btn-warning" href="{{ post.get_update_url }}">Update</a><br>
+                <a class="btn btn-danger" style="margin-top: 15px;" href="{{ post.get_delete_url }}">Delete</a><br>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

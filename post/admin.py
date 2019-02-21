@@ -4,7 +4,7 @@ from .models import Post
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'publishing_date', 'content']  # post listesinde gozuken alanlar
+    list_display = ['title', 'publishing_date', 'content', 'slug']  # post listesinde gozuken alanlar
     list_display_links = ['title', 'publishing_date']  # post icine girebilmek icin linkler
     list_filter = ['publishing_date']  # filtre olusturur
     search_fields = ['title', 'content']
